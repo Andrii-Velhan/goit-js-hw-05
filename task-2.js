@@ -1,57 +1,27 @@
-const isUniq = (element, index, arr) => arr.indexOf(element) === index;
-const isEven = (element) => element % 2 === 0;
-
-function filterArray(array, cb) {
-  "use strict";
-  const numbers = [];
-  for (let i = 0; i < array.length; i += 1) {
-    const element = array[i];
-    const index = i;
-    // Write code under this line
-    if (cb(element, index, array)) {
-      numbers.push(array[i]);
-    }
+ // Write code under this line
+  class User {
+  // аналог функции-конструктора
+  constructor(name, age, followers) {
+    this.name = name;
+    this.age = age;
+    this.followers = followers;
   }
-  return numbers;
-}
+};
 
-const arr = [1, 2, 3, 4, 5, 1, 2, 5];
+ User.prototype.getInfo = function() {
+  return (`User ${this.name} is ${this.age} years old and has ${this.followers} followers`);
+  };
 
-console.log(filterArray(arr, isUniq));
-// [1, 2, 3, 4, 5]
+ console.log(typeof User);
+// 'function'
 
-console.log(filterArray(arr, isEven));
-// [2, 4, 2]
+// const mango = new User('Mango', 2, 20);
+// console.log(mango.getInfo()); 
+// 'User Mango is 2 years old and has 20 followers'
 
-/*
-Задача 4 - 2
-Callback функция и метод push
-Функция isUniq принимает три параметра - element,
-  index и arr.Функция возвращает true или false
-в зависимости от того встречается ли элемент первый раз
-в массиве(true) или этот элемент в массиве
-уже встречался(false).
+// console.log(typeof mango.getInfo); 
+// 'function'  
 
-Функция isEven принимает один параметр - element.
-Функция возвращает true или false в зависимости
-от того является ли элемент четным числом или нет.
-
-Функция filterArray(array, cb), принимает 1 - м
-параметром array - массив чисел, а вторым параметром
-cb - функцию обратного вызова(callback).
-Дополни тело функции так, чтобы функция filterArray
-заполняла новый пустой массив numbers только теми
-элементами из массива array, для которых вызов
-функции cb вернет true.
-*/
-
-/*
-Для аргументов - массива [-2, 0, 2] и isUniq результатом будет массив [-2, 0, 2]
-Для аргументов - массива [1, 1, 2] и isUniq результатом будет массив [1, 2]
-Для аргументов - массива arr и isUniq результатом будет массив [1, 2, 3, 4, 5]
-Для аргументов - массива arr и isEven результатом будет массив [2, 4, 2]
-Код должен содержать функцию isUniq
-Код должен содержать функцию filterArray
-Результатом вызова функции filterArray должен быть пустой массив,
-если аргумент - пустой массив
-*/
+// const poly = new User( 'Poly', 3, 17);
+// console.log(poly.getInfo());
+// 'User Poly is 3 years old and has 17 followers' // Write code under this line// 'function'// 'User Mango is 2 years old and has 20 followers'// 'function'  // 'User Poly is 3 years old and has 17 followers'
