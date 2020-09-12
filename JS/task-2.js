@@ -1,5 +1,12 @@
 // Write code under this line
-class User {
+class Storage {
+  // аналог функции-конструктора
+  constructor(name, age, followers) {
+    this.name = name;
+    this.age = age;
+    this.followers = followers;
+  }
+} {
   // аналог функции-конструктора
   constructor(name, age, followers) {
     this.name = name;
